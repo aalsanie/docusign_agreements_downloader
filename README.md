@@ -47,8 +47,6 @@ Notes:
 
 You must provide a **date window** for listing envelopes because DocuSign listing/search APIs are date-filtered.
 
-Example: download completed envelopes for today:
-
 ```bash
 dsa --from-date "2026-01-30T00:00:00Z" --to-date "2026-01-31T23:59:59Z" --status completed --out .\out
 ```
@@ -82,7 +80,7 @@ pytest --cov=docusign_agreements_downloader --cov-report=term-missing --cov-fail
 1. Export environment vars
 2. Run the downloader:
    ```bash
-   dsa download --from-date "2026-01-30T00:00:00Z" --to-date "2026-01-31T23:59:59Z" --status completed --out ./out
+   dsa --from-date "2026-01-30T00:00:00Z" --to-date "2026-01-31T23:59:59Z" --status completed --out .\out
    ```
 3. Confirm:
    - `out/index.json` exists
