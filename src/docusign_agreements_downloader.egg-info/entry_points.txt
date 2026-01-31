@@ -1,2 +1,0 @@
-[console_scripts]
-dsa = docusign_agreements_downloader.cli:app
