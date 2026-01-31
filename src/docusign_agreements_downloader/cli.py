@@ -11,14 +11,14 @@ from .service import AgreementDownloadService
 app = typer.Typer(no_args_is_help=True, add_completion=False)
 
 
-@app.command("download")
+@app.command()
 def download(
-    from_date: str = typer.Option(..., help="ISO-8601 start (required). Example: 2026-01-01T00:00:00Z"),
-    to_date: str = typer.Option(None, help="ISO-8601 end (optional). Example: 2026-01-31T23:59:59Z"),
-    status: str = typer.Option("completed", help="Envelope status filter (e.g., completed, sent, voided)"),
-    out: Path = typer.Option(Path("./out"), help="Output directory"),
-    page_size: int = typer.Option(100, min=1, max=1000, help="Page size for listing envelopes"),
-):
+        from_date: str = typer.Option(..., help="ISO-8601 start (required). Example: 2026-01-01T00:00:00Z"),
+        to_date: str | None = typer.Option(None, help="ISO-8601 end (optional). Example: 2026-01-31T23:59:59Z"),
+        status: str = typer.Option("completed", help="Envelope status filter (e.g., completed, sent, voided)"),
+        out: Path = typer.Option(Path("./out"), help="Output directory"),
+        page_size: int = typer.Option(100, min=1, max=1000, help="Page size for listing envelopes"),
+) -> None:
     """Download DocuSign agreements (envelopes) + documents to filesystem."""
     try:
         settings = Settings()
@@ -38,6 +38,7 @@ def download(
         "finished_at": result.finished_at.isoformat(),
     }
     typer.echo(json.dumps(summary, indent=2))
+
     if result.failures:
         typer.echo("\nFailures:", err=True)
         for f in result.failures[:50]:
@@ -45,7 +46,7 @@ def download(
         raise typer.Exit(code=1 if result.status != "ok" else 0)
 
 
-def main():
+def main() -> None:
     app()
 
 

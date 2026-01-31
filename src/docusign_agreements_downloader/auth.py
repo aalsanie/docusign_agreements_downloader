@@ -25,7 +25,7 @@ def build_jwt_assertion(settings: Settings) -> str:
     payload: dict[str, Any] = {
         "iss": settings.integration_key,
         "sub": settings.user_id,
-        "aud": str(settings.auth_server),
+        "aud": settings.auth_server.host,
         "iat": iat,
         "exp": exp,
         "scope": settings.scopes,

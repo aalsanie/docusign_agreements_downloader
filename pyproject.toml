@@ -31,7 +31,7 @@ dev = [
 ]
 
 [project.scripts]
-dsa = "docusign_agreements_downloader.cli:app"
+dsa = "docusign_agreements_downloader.cli:main"
 
 [tool.ruff]
 line-length = 100

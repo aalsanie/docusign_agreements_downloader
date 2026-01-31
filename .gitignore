@@ -55,3 +55,9 @@ Thumbs.db
 out/
 PKG-INFO
 PACKAGE-INFO
+
+.venv/
+venv/
+env/
+
+.dev

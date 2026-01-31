@@ -50,7 +50,7 @@ You must provide a **date window** for listing envelopes because DocuSign listin
 Example: download completed envelopes for today:
 
 ```bash
-dsa download   --from-date "2025-12-31T00:00:00Z"   --to-date   "2026-01-31T23:59:59Z"   --status completed   --out ./out
+dsa --from-date "2026-01-30T00:00:00Z" --to-date "2026-01-31T23:59:59Z" --status completed --out .\out
 ```
 
 What it writes:
