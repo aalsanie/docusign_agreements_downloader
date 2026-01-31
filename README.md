@@ -1,9 +1,5 @@
 # DocuSign Agreements Downloader
 
-## Prerequisites
-
-You must have a DocuSign integration set up with JWT Grant:
-
 1. Create an **Integration Key** (Client ID) in the DocuSign Developer Center.
 2. Enable **JWT Grant** for the integration and upload your public key.
 3. Identify the **User ID** (GUID).
