@@ -15,6 +15,7 @@ env/
 build/
 dist/
 *.egg-info/
+src/*.egg-info/
 .eggs/
 pip-wheel-metadata/
 
@@ -52,3 +53,5 @@ Thumbs.db
 
 # --- Tool outputs ---
 out/
+PKG-INFO
+PACKAGE-INFO
